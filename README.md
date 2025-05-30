@@ -30,21 +30,5 @@ Blvckmark is a Node.js-based backend application, likely designed for an e-comme
 ## Dependencies:
   npm i express ejs axos dotenv multer razorpay mongoose
 
-# Project Structure:
-Blvckmark/
-│
-├── index.js               # Main entry point
-├── .env                   # Environment configuration
-├── package.json           # Project metadata and dependencies
-├── middleware/            # Middleware for auth and admin
-│   ├── auth.js
-│   └── admin.js
-├── routes/                # API route handlers
-│   ├── auth.js
-│   └── payment.js
-├── schema/                # Mongoose schemas
-│   ├── item.js
-│   ├── order.js
-│   └── user.js
-└── node_modules/          # Installed dependencies
+
 
