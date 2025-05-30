@@ -1,0 +1,16 @@
+.navbar{
+    height: 10vh;
+    width: 100%;
+    font-family: var(--pri-font);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    padding-left: 15px;
+}
+
+.navbar h1{
+    cursor: pointer;
+}

@@ -1,0 +1,50 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --pri-font: "Jersey 10", sans-serif;
+    --sec-font: "Poppins", sans-serif;
+}
+
+body{
+    height: 100%;
+    width: 100%;
+}
+
+.jersey-10-regular {
+  font-family: "Jersey 10", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.poppins-regular {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+footer{
+    height: 30vh;
+    width: 100%;
+    padding: 30px;
+    text-align: left;
+    background-color: black;
+    color: white;
+}
+
+footer h1{
+    font-family: var(--pri-font);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 5rem;
+}
+
+footer p{
+    font-family: var(--sec-font);
+    text-transform: capitalize;
+    font-size: 0.7rem;
+}

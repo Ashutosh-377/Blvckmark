@@ -1,0 +1,128 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --pri-font: "Jersey 10", sans-serif;
+    --sec-font: "Poppins", sans-serif;
+}
+
+body{
+    height: 100%;
+    width: 100%;
+}
+
+.jersey-10-regular {
+  font-family: "Jersey 10", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.poppins-regular {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.logo h1{
+    font-family: var(--pri-font);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 2.5rem;
+}
+
+.navbar{
+    height: 10vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0vh 10vw;
+    position: fixed;
+    top: 0;
+    z-index: 10;
+    background-color: white;
+}
+
+.cont{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-size: 1.5rem;
+}
+
+.cont i:hover{
+    color: #ff0000;
+    transition: 0.2s all ease;
+    cursor: pointer;
+}
+
+/* Overlay Fullscreen Menu */
+.overlay-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: #000;
+    color: #fff;
+    z-index: 999;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: left;
+    transform: translateY(-100%);
+    transition: transform 0.4s ease-in-out;
+    padding: 10vh 10vw;
+}
+
+.overlay-menu.active {
+    transform: translateY(0%);
+}
+
+.overlay-menu ul {
+    list-style: none;
+    text-align: center;
+}
+
+.overlay-menu ul li {
+    margin: 20px 0;
+}
+
+.overlay-menu ul li a {
+    text-decoration: none;
+    font-size: 2rem;
+    color: #fff;
+    font-family: var(--sec-font);
+    transition: 0.3s;
+}
+
+.overlay-menu ul li a:hover {
+    color: #ff0000;
+}
+
+.credits h1{
+    font-family: var(--pri-font);
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.overlay-menu i{
+    font-size: 1.5rem;
+    &:hover{
+        cursor: pointer;
+        color: #ff0000;
+        transition: 0.3s ease-in-out;
+    }
+}
+
+.cont i{
+    font-size: 1.5rem;
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}

@@ -1,0 +1,58 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --pri-font: "Jersey 10", sans-serif;
+    --sec-font: "Poppins", sans-serif;
+}
+
+body{
+    height: 100%;
+    width: 100%;
+}
+
+.jersey-10-regular {
+  font-family: "Jersey 10", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.poppins-regular {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+header{
+    height: 100vh;
+    width: 100%;
+}
+
+.orders{
+    height: 100%;
+    width: 100%;
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: 20px;
+}
+
+header h1{
+    font-family: var(--pri-font);
+    text-transform: uppercase;
+    text-align: center;
+    letter-spacing: 1px;
+    font-size: 2.5rem;
+}
+
+.list{
+    font-family: var(--sec-font);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+}

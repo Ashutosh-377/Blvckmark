@@ -1,0 +1,172 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --pri-font: "Jersey 10", sans-serif;
+    --sec-font: "Poppins", sans-serif;
+}
+
+body{
+    height: 100%;
+    width: 100%;
+}
+
+.jersey-10-regular {
+  font-family: "Jersey 10", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.poppins-regular {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+header{
+    margin-top: 10vh;
+    height: 90vh;
+    width: 100%;
+}
+
+.wrapper{
+    height: 80vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.main{
+    height: 80vh;
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    overflow-y: scroll
+}
+
+.cartItem{
+    height: 20vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 0px 20px;
+}
+
+.cartItem .img img{
+    height: 18vh;
+}
+
+.txt h2{
+    font-family: var(--pri-font);
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: 0.3s ease-in-out;
+    cursor: pointer;
+    &:hover{
+        text-decoration: underline;
+    }
+}
+
+.txt p{
+    font-family: var(--sec-font);
+}
+
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.container form button{
+    padding: 10px 30px;
+    font-family: var(--sec-font);
+    background-color: black;
+    color: white;
+    cursor: pointer;
+    border: none;
+    transition: 0.3s ease-in-out;
+    &:hover{
+        background-color: #ff0000;
+    }
+}
+
+.foot{
+    height: 10vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 20px;
+    font-family: var(--sec-font);
+    text-transform: capitalize;
+}
+
+.location button{
+    padding: 10px 30px;
+    background: #000;
+    color: white;
+    text-transform: capitalize;
+    font-family: var(--sec-font);
+    border: 2px solid black;
+    transition: 0.3s all ease-in-out;
+    &:hover{
+        background-color: white;
+        color: black;
+        border: 2px solid black;
+        box-shadow: 10px 10px black;
+        transform: translate(-5px, -5px);
+    }
+}
+
+.location{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.location input{
+    padding: 10px 20px;
+    font-family: var(--sec-font);
+    border: #000 solid 2px;
+}
+
+.location h1{
+    font-family: var(--pri-font);
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.location p{
+    font-family: var(--sec-font);
+    text-transform: capitalize;
+    font-size: 0.7rem;
+}
+
+.location form{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.wrap{
+    height: 90vh;
+    width: 70%;
+}

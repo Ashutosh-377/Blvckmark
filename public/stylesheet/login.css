@@ -1,0 +1,77 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --pri-font: "Jersey 10", sans-serif;
+    --sec-font: "Poppins", sans-serif;
+}
+
+body{
+    height: 100%;
+    width: 100%;
+}
+
+.jersey-10-regular {
+  font-family: "Jersey 10", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.poppins-regular {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+header{
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contain{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 50px;
+}
+
+.contain form{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+}
+
+form input, button{
+    padding: 10px 30px;
+    background-color: #bbb;
+    color: black;
+    border: none;
+    font-family: var(--sec-font);
+}
+
+form button{
+    background-color: black;
+    color: white;
+    text-transform: capitalize;
+}
+
+.contain h1{
+    font-family: var(--pri-font);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-size: 4rem;
+}
+
+.contain p, p a{
+    font-family: var(--sec-font);
+    text-decoration: none;
+}

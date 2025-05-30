@@ -1,0 +1,123 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --pri-font: "Jersey 10", sans-serif;
+    --sec-font: "Poppins", sans-serif;
+}
+
+body{
+    height: 100%;
+    width: 100%;
+}
+
+.jersey-10-regular {
+  font-family: "Jersey 10", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.poppins-regular {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+header {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.banner{
+    height: 100%;
+    width: 100%;
+    background-image: url('../images/banner.png');
+    background-size: cover;
+    background-position: bottom;
+    background-repeat: no-repeat;
+}
+
+.container{
+    height: 50vw;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    padding: 7px 0px;
+    overflow-y: hidden;
+}
+
+.card {
+    height: 24vw;
+    width: 24vw;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    perspective: 1000px;
+    cursor: pointer; /* Optional: helps with smoother transform rendering */
+}
+
+.text {
+    overflow-y: hidden;
+    will-change: transform; /* Hint browser to optimize this */
+}
+
+.text h2 {
+    color: white;
+    font-family: var(--sec-font);
+    text-transform: capitalize;
+    transform: translateY(40px);
+    transition: transform 0.4s cubic-bezier(0.25, 0.1, 0.25, 1); /* Custom easing */
+    backface-visibility: hidden; /* Improves transform rendering */
+}
+
+.card:hover h2 {
+    transform: translateY(0px);
+}
+
+.txt{
+    height: 10vh;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+.txt h1{
+    text-transform: uppercase;
+    font-family: var(--pri-font);
+    letter-spacing: 1px;
+    text-align: center;
+    font-size: 3rem;
+}
+
+.form{
+    height: 100vh;
+    width: 100%;
+}
+
+.inp{
+    height: 90vh;
+    width: 100%;
+    display: flex;
+    align-items: end;
+    justify-content: center;
+    padding-bottom: 15vh;
+}
+
+.inp input{
+    padding: 10px 30px;
+    border: none;
+    color: black;
+    background-color: transparent;
+    width: 35%;
+    font-family: var(--sec-font);
+}
