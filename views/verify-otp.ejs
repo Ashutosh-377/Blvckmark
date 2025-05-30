@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Verify OTP</title>
+</head>
+<body>
+  <div>
+    <h4">Email Verification</h4>
+    <form method="POST" action="/verify-otp">
+      <div">
+        <label for="email" class="form-label">Email</label>
+        <input required type="email" class="form-control" name="email" id="email" />
+      </div>
+      <div class=>
+        <label for="otp" class="form-label">OTP</label>
+        <input required type="text" class="form-control" name="otp" id="otp" />
+      </div>
+      <button>Verify</button>
+    </form>
+  </div>
+</body>
+</html>

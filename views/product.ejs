@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <link rel="stylesheet" href="../stylesheet/product.css">
+    <%- include("./partials/dependencies") %>
+</head>
+<body>
+    <%- include('./partials/navbar') %>
+    <header>
+        <div class="main">
+            <div class="image">
+                <img src="<%= product.image %>" alt="<%= product.name %>">
+            </div>
+            <div class="product">
+                <div class="txt">
+                    <h1><%= product.name %></h1>
+                    <p><%= product.description %></p>
+                </div>
+                <div class="price">
+                    <h1>rs.<%= product.price %></h1>
+                    <p>all taxes included</p>
+                </div>
+                <div class="button">
+                    <form action="/add-to-cart/<%= product._id %>" method="POST">
+                        <button type="submit" class="add-cart-btn">Add to Cart</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </header>
+    <%- include('./partials/footer') %>
+</body>
+</html>

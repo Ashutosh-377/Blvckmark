@@ -1,0 +1,46 @@
+<link rel="stylesheet" href="../../stylesheet/navbar.css">
+
+<div class="navbar">
+  <div class="cont">
+    <div class="menu" id="menu-icon">
+      <i class="fa-solid fa-bars"></i>
+    </div>
+    <div class="cart" onclick="window.location.href='/cart'">
+      <i class="fa-solid fa-cart-shopping"></i>
+    </div>
+  </div>
+  <div class="logo">
+    <h1 onclick="window.location.href='/'" style="cursor: pointer;">bl<span style="color: #ff0000;">v</span>ckmark</h1>
+  </div>
+  <div class="cont">
+    <% if (userId) { %>
+      <a href="/profile" class="log" title="Profile">
+        <i class="fa-solid fa-circle-user"></i>
+      </a>
+      <form action="/logout" method="POST" style="display:inline;">
+        <button type="submit" class="logout-btn" style="background: none; border: none;" title="Logout">
+          <i class="fa-solid fa-right-from-bracket"></i>
+        </button>
+      </form>
+    <% } else { %>
+      <a href="/login" class="log" title="Login">
+        <i class="fa-solid fa-circle-user"></i>
+      </a>
+    <% } %>
+  </div>
+</div>
+
+<div class="overlay-menu" id="overlay-menu">
+  <i class="fa-solid fa-xmark" id="close"></i>
+  <ul>
+    <li><a href="/">Home</a></li>
+    <li><a href="/products">Products</a></li>
+    <li><a href="/about">About</a></li>
+    <li><a href="/contact">Contact</a></li>
+  </ul>
+  <div class="credits">
+    <h1>blvckmark.co</h1>
+  </div>
+</div>
+
+<script src="../../javascript/menu.js"></script>

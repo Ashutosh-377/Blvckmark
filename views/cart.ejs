@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart</title>
+    <link rel="stylesheet" href="../stylesheet/cart.css">
+    <%- include('./partials/dependencies') %>
+</head>
+<body>
+    <%- include('./partials/navbar') %>
+    <header>
+        <div class="wrapper">
+            <div class="wrap">
+              <div class="main">
+                  <% let total = 0 %>
+                  <% cart.forEach(item => { %>
+                      <div class="cartItem">
+                          <div class="container">
+                            <div class="img">
+                              <img src="<%= item.productId.image %>" alt="<%= item.productId.name %>">
+                            </div>
+                            <div class="txt">
+                              <h2 onclick="window.location.href='/product/<%= item.productId._id %>'" ><%= item.productId.name %></h2>
+                              <p>₹<%= item.productId.price %></p>
+                              <p>Qunatity: <%= item.quantity %></p>
+                            </div>
+                          </div>
+                          <div class="container">
+                              <form action="/cart/remove/<%= item.productId._id %>" method="post">
+                                  <button type="submit">Remove</button>
+                              </form>
+                          </div>
+                      </div>
+                      <% total += item.productId.price*item.quantity %>
+                  <% }) %>
+              </div>
+              <div class="cost">
+                <h1>Total : ₹<%= total %></h1>
+              </div>
+            </div>
+            <div class="location">
+                <h1>Location: </h1>
+                <p>*please consider to enter your location before checking out*</p>
+                <form action="/payment/create-order">
+                  <input id="name" placeholder="Name" type="text" required>
+                  <input id="address" placeholder="Address" type="text" required>
+                  <input id="city" placeholder="City" type="text" required>
+                  <input id="postal" placeholder="Postal Code" type="number" minlength="6" maxlength="6" required>
+                  <input id="phone" placeholder="Phone Number" type="number" minlength="10" maxlength="10" required>
+                  <button id="checkoutBtn" data-total="<%= total %>" type="submit">Checkout</button>
+                </form>
+            </div>
+        </div>
+    </header>
+    <%- include('./partials/footer') %>
+</body>
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<script>
+  document.getElementById("checkoutBtn").addEventListener("click", async (e) => {
+    const total = document.getElementById("checkoutBtn").dataset.total;
+    e.preventDefault()
+
+    try {
+      const res = await fetch("/payment/create-order", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ amount: total })
+      });
+
+      const orderData = await res.json();
+
+      const options = {
+        key: "<%= process.env.RAZORPAY_KEY_ID %>",
+        amount: orderData.amount,
+        currency: "INR",
+        name: "Your Store",
+        description: "Order Payment",
+        order_id: orderData.id,
+        handler: async function (response) {
+          const shippingInfo = {
+            name: document.getElementById("name").value,
+            address: document.getElementById("address").value,
+            city: document.getElementById("city").value,
+            postalCode: document.getElementById("postal").value,
+            phone: document.getElementById("phone").value,
+            amount: total
+          };
+      
+          const verifyRes = await fetch("/payment/verify", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ ...response, shippingInfo })
+          });
+      
+          const message = await verifyRes.text();
+          alert(message);
+        },
+        prefill: {
+          name: "",
+          email: "",
+          contact: ""
+        },
+        theme: {
+          color: "#3399cc"
+        }
+      };
+
+      const rzp = new Razorpay(options);
+      rzp.open();
+    } catch (error) {
+      console.error(error);
+      alert("Something went wrong while starting payment.");
+    }
+  });
+</script>
+
+</html>

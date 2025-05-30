@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <link rel="stylesheet" href="../stylesheet/dashboard.css">
+    <%- include('./partials/dependencies') %>
+</head>
+<body>
+    <header>
+        <%- include('./partials/admin-navbar') %>
+        <div class="main">
+            <div class="components">
+                <button onclick="window.location.href='/create'">Add Product</button>
+                <button onclick="window.location.href='/products'">All Products</button>
+                <button onclick="window.location.href='/analytics'">Analytics</button>
+            </div>
+            <div class="display">
+                <h3>Products:</h3>
+                <ul>
+                    <% item.forEach(items => { %>
+                        <div class="item">
+                            <li><strong><%= items.name %></strong> - ₹<%= items.price %> - <%= items.description %></li>
+                            <div class="extras">
+                                <button><i class="fa-solid fa-globe" onclick="window.location.href='/product/<%= items._id %>'"></i></button>
+                                <form action="/delete/<%= items._id %>" method="post" style="display: inline;">
+                                    <button><i class="fa-solid fa-trash" onclick="return confirm('Confirm Delete this item?')"></i></button>
+                                </form>
+                                <button><i class="fa-solid fa-pencil" onclick="window.location.href='/edit/<%= items._id %>'"></i></button>
+                            </div>
+                        </div>
+                    <% }) %>
+                </ul>
+            </div>
+        </div>
+    </header>
+    <%- include('./partials/footer') %>
+</body>
+</html>

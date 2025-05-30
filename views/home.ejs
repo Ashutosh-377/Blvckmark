@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blvckmark.co</title>
+    <link rel="stylesheet" href="../stylesheet/home.css">
+    <%- include('./partials/dependencies') %>
+</head>
+<body>
+    <%- include('./partials/preloader') %>
+    <%- include('./partials/navbar') %>
+    <header>
+        <div class="banner">
+        </div>
+    </header>
+    <main>
+        <div class="products">
+            <div class="txt">
+                <h1>Products</h1>
+            </div>
+            <div class="container">
+                <% products.forEach(product => { %>
+                    <div class="card" style="background-image: url('<%= product.image %>'); background-size: cover; background-size: cover;" onclick="window.location.href='/product/<%= product.id %>'">
+                        <div class="text">
+                            <h2><%= product.name %></h2>
+                        </div>
+                    </div>
+                <% }) %>
+            </div>
+        </div>
+        <div class="form">
+            <div class="txt">
+                <h1>join the community</h1>
+            </div>
+            <div class="inp">
+                <input type="email" name="Enter your email" placeholder="Enter your email">
+            </div>
+        </div>
+    </main>
+    <%- include('./partials/footer') %>
+</body>
+</html>

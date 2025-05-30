@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All-Orders</title>
+    <link rel="stylesheet" href="../stylesheet/all-order.css">
+    <%- include('./partials/dependencies') %>
+</head>
+<body>
+    <header>
+        <%- include('./partials/admin-navbar') %>
+        <h1>All Orders</h1>
+        <div class="orders">
+            <% orders.forEach(order => { %>
+                <div class="list" onclick="window.location.href='/order/<%= order._id %>'">
+                    <p>Order ID: <%= order._id %></p>
+                    <p><%= order.createdAt %></p>
+                </div>
+            <% }) %>
+        </div>
+        
+    </header>
+    <%- include('./partials/footer') %>
+</body>
+</html>

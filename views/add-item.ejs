@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <link rel="stylesheet" href="../stylesheet/add-item.css">
+    <%- include('./partials/dependencies') %>
+</head>
+<body>
+    <header>
+        <%- include('./partials/admin-navbar') %>
+        <div class="main">
+            <h1>Add item</h1>
+            <form action="/create" method="post" enctype="multipart/form-data">
+                <input type="text" name="name" placeholder="Product Name" required />
+                <input type="text" name="description" placeholder="Description" required />
+                <input type="number" name="price" placeholder="Price" required />
+                <input type="file" name="image" accept="image/*" required>
+                <button type="submit">Save</button>
+            </form>
+        </div>
+    </header>
+    <%- include('./partials/footer') %>
+</body>
+</html>

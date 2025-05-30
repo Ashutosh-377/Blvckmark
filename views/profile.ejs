@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile - Blvckmark.co</title>
+    <link rel="stylesheet" href="../stylesheet/profile.css">
+    <%- include('./partials/dependencies') %>
+</head>
+<body>
+    <%- include('./partials/navbar') %>
+    <header>
+        <div class="main">
+            <div class="card">
+                <div class="img">
+                    <img src="../images/pfp.png">
+                </div>
+                <div class="txt">
+                    <h1><%= user.username %></h1>
+                    <h5><%= user.email %></h5>
+                    <form action="/logout" method="post">
+                        <button type="submit">log out</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </header>
+    <%- include('./partials/footer') %>
+</body>
+</html>

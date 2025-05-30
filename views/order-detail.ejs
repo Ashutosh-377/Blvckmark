@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order: <%= order._id %></title>
+    <link rel="stylesheet" href="../stylesheet/order-detail.css">
+    <%- include('./partials/dependencies') %>
+</head>
+<body>
+    <header>
+        <%- include('./partials/admin-navbar') %>
+        <div class="order">
+            <h1 class="heading">Order: <%= order._id %></h1>
+            <div class="row">
+                <div class="wrap">
+                    <h1>₹<%= order.amount %></h1>
+                    <p>Status: <span style="color: green;"><%= order.status %></span></p>
+                </div>
+                <div class="wrap">
+                    <p>Razorpay order ID: <%= order.razorpayOrderId %></p>
+                    <p>Payment ID: <%= order.razorpayPaymentId %></p>
+                    <p>created At: <%= order.createdAt %></p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="wrap">
+                    <h1>Customer Details</h1>
+                    <p>Name: <%= order.shippingAddress.name %></p>
+                    <p>Address: <%= order.shippingAddress.address %></p>
+                    <p>City: <%= order.shippingAddress.city %></p>
+                    <p>PIN code: <%= order.shippingAddress.postalCode %></p>
+                    <p>Phone: +91 <%= order.shippingAddress.phone %></p>
+                </div>
+                <div class="wrap">
+                    <h1>Products</h1>
+                    <% order.items.forEach(item => { %>
+                        <div class="pro">
+                            <p><%= item.productName %></p>
+                            <p>Quantity: <%= item.quantity %></p>
+                            <p>Price: ₹<%= item.price %></p>
+                        </div>
+                    <% }) %>
+                </div>
+            </div>
+        </div>
+    </header>
+    <%- include('./partials/footer') %>
+</body>
+</html>

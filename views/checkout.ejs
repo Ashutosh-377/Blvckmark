@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head><title>Checkout</title>
+    <link rel="stylesheet" href="../stylesheet/checkout.css">
+</head>
+  <body>
+    <h1>Checkout</h1>
+    <form id="paymentForm">
+      <input type="number" name="amount" value="500" />
+      <button type="submit">Pay</button>
+    </form>
+
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <script>
+      document.getElementById("paymentForm").addEventListener("submit", async function (e) {
+        e.preventDefault();
+
+        const response = await fetch("/payment/create-order", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ amount: 500 })
+        });
+
+        const order = await response.json();
+
+        const options = {
+          key: "<%= key_id %>",
+          amount: order.amount,
+          currency: "INR",
+          name: "Test Store",
+          description: "Test Transaction",
+          order_id: order.id,
+          handler: async function (response) {
+            await fetch("/payment/verify", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify(response)
+            });
+            alert("Payment successful!");
+          }
+        };
+
+        const rzp = new Razorpay(options);
+        rzp.open();
+      });
+    </script>
+  </body>
+</html>
